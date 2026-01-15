@@ -54,7 +54,7 @@
 
 ## 2. Реализация программы
 
-\```c
+```c
 // Необходимые библиотеки
 #include <stdio.h>
 #include <locale.h>
@@ -112,6 +112,7 @@ int min(int array[]) {
 	}
 	return count;
 }
+
 ```
 
 <div align="center">
