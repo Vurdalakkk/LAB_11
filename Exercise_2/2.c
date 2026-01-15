@@ -1,108 +1,29 @@
-// Необходимые библиотеки
+#define _CRT_SECURE_NO_WARNINGS
+
+// РќРµРѕР±С…РѕРґРёРјС‹Рµ Р±РёР±Р»РёРѕС‚РµРєРё
 #include <stdio.h>
-#include <math.h>
 #include <locale.h>
 
-// Объявление функций
-double average_value(double array[100]);
-double summ_plus(double array[100]);
-double summ_minus(double array[100]);
-int count_plus(double array[100]);
-int count_minus(double array[100]);
-
-
-// Основная функция
-int main() {
-	// Русская локаль
+// РћСЃРЅРѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ
+int main()
+{
+	// Р СѓСЃСЃРєР°СЏ Р»РѕРєР°Р»СЊ
 	setlocale(LC_CTYPE, "RUS");
-	// Инициализация переменных
-	// Шаг, необходимый для заполнения массива на 100 значений
-	double step = 0.0195;
-	// Массив с результатами
-	double res[100];
-	//Промежуток
-	double a1 = 0.15, a2 = 2.1;
-	// F(x)
-	double result;
-	// Счетчик
-	int i1 = 0;
-	
-	// Цикл для вычисления 100 значений для массива 
-	for (double i = a1; i <= a2; i += step, i1++) {
-		result = i - (3 * pow(cos(1.04 * i), 2));
-		res[i1] = result;
-	}
 
-	// Вывод найденных значений
-	printf("Имя массива: res\n");
-	printf("Накопленное значение положительных элементов массива: %lf\n", summ_plus(res));
-	printf("Накопленное значение отрицательных элементов массива: %lf\n", summ_minus(res));
-	printf("Количество положительных элементов массива: %d\n", count_plus(res));
-	printf("Количество отрицательных элементов массива: %d\n", count_minus(res));
-	printf("Среднее значение положительных значений массива: %lf\n", average_value(res));
-	printf("\n");
-}
+	float PI = 3.14159, * p1, * p2;
 
-// Пользовательские функции
+	// РћР±Р° СѓРєР°Р·Р°С‚РµР»СЏ РїРѕР»СѓС‡Р°СЋС‚ Р°РґСЂРµСЃ РїРµСЂРµРјРµРЅРЅРѕР№ PI
+	p1 = p2 = &PI;
 
-// Определяет среднее значение положительных чисел списка
-double average_value(double array[100]) {
-	int count = 0;
-	double summ = 0;
-	for (int i = 0; i <= 99; i++ ) {
-		if (array[i] > 0) {
-			summ += array[i];
-			count++;
-		}
-	}
-	return (summ/count);
-}
+	// Р’С‹РІРѕРґ РІ С€РµСЃС‚РЅР°РґС†Р°С‚РµСЂРёС‡РЅРѕРј С„РѕСЂРјР°С‚Рµ
+	printf("РџРѕ Р°РґСЂРµСЃСѓ p1=%p С…СЂР°РЅРёС‚СЃСЏ *p1=%g\n", p1, *p1);
+	printf("РџРѕ Р°РґСЂРµСЃСѓ p2=%p С…СЂР°РЅРёС‚СЃСЏ *p2=%g\n", p2, *p2);
 
-// Определяет сумму всех положительных чисел списка
-double summ_plus(double array[100]) {
-	double summ = 0;
-	for (int i = 0; i <= 99; i++) {
-		if (array[i] > 0) {
-			summ += array[i];
+	// Р’С‹РІРѕРґ РІ РґРµСЃСЏС‚РёС‡РЅРѕРј С„РѕСЂРјР°С‚Рµ РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ
+	printf("\nР’ РґРµСЃСЏС‚РёС‡РЅРѕР№ СЃРёСЃС‚РµРјРµ:\n");
+	printf("РђРґСЂРµСЃ p1: %lu\n", (unsigned long)p1);
+	printf("РђРґСЂРµСЃ p2: %lu\n", (unsigned long)p2);
 
-		}
-	}
-	return (summ);
-}	
-
-// Определяет сумму всех отрицательных чисел списка
-double summ_minus(double array[100]) {
-	double summ = 0;
-	for (int i = 0; i <= 99; i++) {
-		if (array[i] < 0) {
-			summ += array[i];
-
-		}
-	}
-	return (summ);
-}
-
-// Считает количество положительных элементов списка
-int count_plus(double array[100]) {
-	int count = 0;
-	for (int i = 0; i <= 99; i++) {
-		if (array[i] > 0) {
-			count++;
-
-		}
-	}
-	return (count);
-}
-
-
-// Считает количество отрицательных элементов списка
-int count_minus(double array[100]) {
-	int count = 0;
-	for (int i = 0; i <= 99; i++) {
-		if (array[i] < 0) {
-			count++;
-
-		}
-	}
-	return (count);
+	getchar();
+	return 0;
 }
