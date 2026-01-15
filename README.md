@@ -112,7 +112,7 @@ int min(int array[]) {
 	}
 	return count;
 }
-\```
+```
 
 <div align="center">
 
